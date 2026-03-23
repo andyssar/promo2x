@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import PromoPage from '@/components/PromoPage';
+import PromoPage from '../../components/PromoPage';
 
 export const metadata: Metadata = {
   title: 'High-Volume Residential Proxies | Exclusive Rate from $0.70/GB | 2extract',
