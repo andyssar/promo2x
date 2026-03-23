@@ -1,20 +1,12 @@
 import Link from 'next/link';
 import styles from './PromoPage.module.css';
-import { featureItems, metricPills, navLinks, statItems, trustItems } from './promo-data';
-import {
-  CheckShieldIcon,
-  GaugeIcon,
-  LightningIcon,
-  ShieldIcon,
-  SparkIcon,
-} from './icons';
-
-const featureIcons = [SparkIcon, ShieldIcon, GaugeIcon, LightningIcon] as const;
-const trustIcons = [CheckShieldIcon, ShieldIcon, SparkIcon, CheckShieldIcon] as const;
+import { featureItems, navLinks, statItems, trustItems } from './promo-data';
 
 function CheckMark() {
   return <span className={styles.check}>✓</span>;
 }
+
+const flags = ['🇺🇸','🇬🇧','🇩🇪','🇨🇦','🇫🇷','🇯🇵','🇧🇷','🇦🇺','🇳🇱','🇮🇹','🇪🇸','🇹🇷','🇸🇪','🇵🇱'];
 
 export default function PromoPage() {
   return (
@@ -22,8 +14,9 @@ export default function PromoPage() {
       <header className={styles.header}>
         <div className={styles.headerInner}>
           <Link href="/" className={styles.brand}>
-            <span className={styles.brandDot} />
-            <span>2extract</span>
+            <span className={styles.brandText}>
+              2e<span className={styles.brandAccent}>x</span>tract
+            </span>
           </Link>
 
           <nav className={styles.nav}>
@@ -35,7 +28,7 @@ export default function PromoPage() {
           </nav>
 
           <div className={styles.headerActions}>
-            <Link href="/signin" className={styles.secondaryButton}>
+            <Link href="/signin" className={styles.signIn}>
               Sign In
             </Link>
             <Link href="/app/signup" className={styles.primaryButton}>
@@ -46,201 +39,191 @@ export default function PromoPage() {
       </header>
 
       <section className={`${styles.section} ${styles.hero}`}>
-        <div className={styles.heroGrid}>
-          <div>
-            <div className={styles.eyebrow}>
-              <span className={styles.eyebrowGlow} />
-              <span>High-volume residential proxies</span>
-            </div>
+        <div className={styles.heroInner}>
+          <h1 className={styles.heroTitle}>
+            Enterprise proxies
+            <br />
+            from $0.70/GB
+          </h1>
 
-            <h1 className={styles.heroTitle}>
-              Enterprise proxies from <span className={styles.gradientText}>$0.70/GB</span>
-            </h1>
+          <p className={styles.heroText}>
+            The premium, reliable network for your high-volume data operations.
+          </p>
 
-            <p className={styles.heroText}>
-              The premium, reliable network for your high-volume data operations.
-            </p>
-
-            <div className={styles.heroButtons}>
-              <Link href="/app/signup" className={styles.primaryButton}>
-                Get Started Now
-              </Link>
-              <a href="#pricing" className={styles.ghostButton}>
-                View Pricing
-              </a>
-            </div>
+          <div className={styles.heroButtons}>
+            <Link href="/app/signup" className={styles.primaryButton}>
+              Get Started Now
+            </Link>
           </div>
 
-          <div className={styles.panel}>
-            <div className={styles.panelInner}>
-              <div className={styles.panelTop}>
-                <div>
-                  <div className={styles.panelLabel}>Network Snapshot</div>
+          <div className={styles.dashboardWrap}>
+            <div className={styles.sideCardLeft}>
+              <div className={styles.miniChart} />
+              <div className={styles.sideRows}>
+                <span />
+                <span />
+                <span />
+                <span />
+              </div>
+            </div>
+
+            <div className={styles.dashboard}>
+              <div className={styles.dashboardTopbar}>
+                <div className={styles.dashboardLogo}>2extract</div>
+                <div className={styles.dashboardTopLinks}>
+                  <span>Dashboard</span>
+                  <span>Balance</span>
+                  <span className={styles.dashboardBadge}>Buy Balance</span>
                 </div>
-                <div className={styles.panelTag}>Live routing</div>
               </div>
 
-              <div className={styles.featureBadge}>
-                <SparkIcon className={styles.inlineIcon} />
-                <div>
-                  <div className={styles.cardTitle}>Zero-lag dashboard</div>
-                  <div className={styles.cardSub}>Instant controls</div>
+              <div className={styles.dashboardMain}>
+                <aside className={styles.dashboardSidebar}>
+                  <span className={styles.sidebarActive}>Overview</span>
+                  <span>My Proxies</span>
+                  <span>Billing</span>
+                  <span>API Docs</span>
+                </aside>
+
+                <div className={styles.dashboardContent}>
+                  <div className={styles.metricRow}>
+                    <div className={styles.metricBox}>
+                      <strong>$3963.70</strong>
+                      <span>Balance</span>
+                    </div>
+                    <div className={styles.metricBox}>
+                      <strong>15</strong>
+                      <span>Active Projects</span>
+                    </div>
+                    <div className={styles.metricBox}>
+                      <strong>1761.60 GB</strong>
+                      <span>Traffic Used</span>
+                    </div>
+                  </div>
+
+                  <div className={styles.bigChart}>
+                    <div className={styles.chartLine} />
+                  </div>
+
+                  <div className={styles.tableRow}>
+                    <div className={styles.tableBox} />
+                    <div className={styles.codeBox} />
+                  </div>
                 </div>
               </div>
+            </div>
 
-              <div className={styles.panelChart}>
-                <svg viewBox="0 0 600 260" preserveAspectRatio="none" aria-hidden="true">
-                  <defs>
-                    <linearGradient id="line" x1="0" x2="1" y1="0" y2="0">
-                      <stop offset="0%" stopColor="#7cecff" />
-                      <stop offset="100%" stopColor="#7a89ff" />
-                    </linearGradient>
-                    <linearGradient id="area" x1="0" x2="0" y1="0" y2="1">
-                      <stop offset="0%" stopColor="rgba(124,236,255,0.35)" />
-                      <stop offset="100%" stopColor="rgba(124,236,255,0)" />
-                    </linearGradient>
-                  </defs>
-                  <path d="M0 180 C60 170, 90 118, 135 130 S230 210, 290 165 S385 80, 450 105 S550 158, 600 80 L600 260 L0 260 Z" fill="url(#area)" />
-                  <path d="M0 180 C60 170, 90 118, 135 130 S230 210, 290 165 S385 80, 450 105 S550 158, 600 80" fill="none" stroke="url(#line)" strokeWidth="5" strokeLinecap="round" />
-                </svg>
-              </div>
-
-              <div className={styles.floatingCard}>
-                <div className={styles.cardTitle}>Throughput</div>
-                <div className={styles.cardValue}>10M+</div>
-                <div className={styles.cardSub}>Ethically sourced IPs available for scale</div>
-              </div>
-
-              <div className={styles.smallFloatingCard}>
-                <div className={styles.cardTitle}>Success Rate</div>
-                <div className={styles.cardValue}>~99%</div>
-                <div className={styles.cardSub}>Stable delivery</div>
-              </div>
+            <div className={styles.sideCardRight}>
+              <div className={styles.rightHeader}>Create Proxy</div>
+              <div className={styles.formLine} />
+              <div className={styles.formLine} />
+              <div className={styles.formLine} />
+              <div className={styles.formLineShort} />
             </div>
           </div>
         </div>
+      </section>
 
-        <div className={styles.statsWrap}>
+      <section className={`${styles.section} ${styles.infrastructure}`}>
+        <h2 className={styles.centerTitle}>Infrastructure built for enterprise demands</h2>
+
+        <div className={styles.statsCard}>
           {statItems.map((item) => (
             <article key={item.label} className={styles.statCard}>
               <div className={styles.statValue}>{item.value}</div>
               <div className={styles.statLabel}>{item.label}</div>
             </article>
           ))}
+        </div>
 
-          <article className={styles.infoCard}>
-            <div className={styles.infoRow}>
-              <div>
-                <h2 className={styles.infoHeading}>Infrastructure built for enterprise demands</h2>
-                <p className={styles.infoText}>
-                  Our robust infrastructure provides the reliability and scale required for mission-critical data operations.
-                </p>
-              </div>
+        <p className={styles.centerText}>
+          Our robust infrastructure provides the reliability and scale required for mission-critical data operations.
+        </p>
 
-              <div className={styles.metricPills}>
-                {metricPills.map((item) => (
-                  <div key={item} className={styles.metricPill}>
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </article>
+        <div className={styles.flags}>
+          {flags.map((flag, i) => (
+            <span key={i} className={styles.flag}>
+              {flag}
+            </span>
+          ))}
         </div>
       </section>
 
       <section id="features" className={styles.section}>
-        <div className={styles.sectionHead}>
-          <p className={styles.sectionKicker}>Features</p>
-          <h2 className={styles.sectionTitle}>A platform that scales with you</h2>
-        </div>
+        <h2 className={styles.centerTitle}>A platform that scales with you</h2>
 
-        <div className={styles.gridTwo}>
-          {featureItems.map((item, index) => {
-            const Icon = featureIcons[index];
-            return (
-              <article key={item.title} className={styles.featureCard}>
-                <div className={styles.featureIconWrap}>
-                  <Icon />
-                </div>
-                <h3 className={styles.featureTitle}>{item.title}</h3>
-                <p className={styles.featureText}>{item.description}</p>
-              </article>
-            );
-          })}
+        <div className={styles.featuresGrid}>
+          {featureItems.map((item) => (
+            <article key={item.title} className={styles.featureCard}>
+              <h3 className={styles.featureTitle}>{item.title}</h3>
+              <p className={styles.featureText}>{item.description}</p>
+            </article>
+          ))}
         </div>
       </section>
 
-      <section id="pricing" className={styles.section}>
-        <div className={styles.pricingGrid}>
-          <div className={styles.sectionHead}>
-            <p className={styles.sectionKicker}>Pricing</p>
-            <h2 className={styles.sectionTitle}>An exclusive rate for high-volume partners</h2>
-            <p className={styles.sectionText}>
-              We provide premium infrastructure and personalized pricing for businesses that operate at scale.
-            </p>
-          </div>
+      <section id="pricing" className={`${styles.section} ${styles.pricingSection}`}>
+        <div className={styles.pricingSmokeLeft} />
+        <div className={styles.pricingSmokeRight} />
+
+        <div className={styles.pricingInner}>
+          <h2 className={styles.pricingTitle}>An exclusive rate for high-volume partners</h2>
+          <p className={styles.pricingText}>
+            We provide premium infrastructure and personalized pricing for businesses that operate at scale.
+          </p>
 
           <article className={styles.pricingCard}>
             <div className={styles.priceLabel}>Flex Pay-As-You-Go</div>
             <div className={styles.priceRow}>
+              <span className={styles.priceFrom}>from</span>
               <div className={styles.priceValue}>$0.70</div>
-              <div className={styles.priceUnit}>/ per GB</div>
+              <span className={styles.priceUnit}>/ per GB</span>
             </div>
-            <p className={styles.sectionText}>
+
+            <p className={styles.priceDescription}>
               To lock in your volume rate, simply top up your balance and contact our support.
             </p>
+
             <ul className={styles.list}>
               <li><CheckMark /> Guaranteed volume discounts</li>
               <li><CheckMark /> Dedicated account &amp; support expert</li>
               <li><CheckMark /> No long-term contracts</li>
               <li><CheckMark /> Start with a minimum $10 top-up</li>
             </ul>
-            <div style={{ position: 'relative', zIndex: 1, marginTop: 24 }}>
-              <Link href="/app/signup" className={styles.primaryButton}>
-                Get Started &amp; Secure Your Rate
-              </Link>
-            </div>
+
+            <Link href="/app/signup" className={styles.primaryButton}>
+              Get Started &amp; Secure Your Rate
+            </Link>
           </article>
         </div>
       </section>
 
       <section id="ethics" className={styles.section}>
-        <div className={styles.sectionHead}>
-          <p className={styles.sectionKicker}>Ethics</p>
-          <h2 className={styles.sectionTitle}>A partner you can trust</h2>
-          <p className={styles.sectionText}>
-            Our commitment to a 100% ethically-sourced network protects your brand&apos;s reputation and ensures long-term operational stability.
-          </p>
-        </div>
+        <h2 className={styles.centerTitle}>A partner you can trust</h2>
+        <p className={styles.centerTextWide}>
+          Our commitment to a 100% ethically-sourced network protects your brand&apos;s reputation and ensures long-term operational stability.
+        </p>
 
-        <div className={styles.gridTwo}>
-          {trustItems.map((item, index) => {
-            const Icon = trustIcons[index];
-            return (
-              <article key={item.title} className={styles.ethicsCard}>
-                <div className={styles.ethicsIconWrap}>
-                  <Icon />
-                </div>
-                <h3 className={styles.ethicsTitle}>{item.title}</h3>
-                <p className={styles.ethicsText}>{item.description}</p>
-              </article>
-            );
-          })}
+        <div className={styles.trustGrid}>
+          {trustItems.map((item, index) => (
+            <article key={item.title} className={styles.trustCard}>
+              <div className={styles.trustVisual}>
+                <div className={`${styles.visualOrb} ${styles[`visualOrb${index + 1}`]}`} />
+              </div>
+              <h3 className={styles.trustTitle}>{item.title}</h3>
+              <p className={styles.trustText}>{item.description}</p>
+            </article>
+          ))}
         </div>
       </section>
 
       <footer className={styles.footer}>
         <div className={styles.footerInner}>
-          <div>
-            <div className={styles.brand}>
-              <span className={styles.brandDot} />
-              <span>2extract</span>
+          <div className={styles.footerBrand}>
+            <div className={styles.brandText}>
+              2e<span className={styles.brandAccent}>x</span>tract
             </div>
-            <p className={styles.footerText}>
-              Enterprise-grade proxy infrastructure for reliable large-scale data operations.
-            </p>
-            <div className={styles.footerMeta}>© 2025 2extract. All rights reserved.</div>
+            <p>© 2025 2extract.<br />All rights reserved.</p>
           </div>
 
           <div className={styles.footerColumn}>
@@ -252,7 +235,7 @@ export default function PromoPage() {
 
           <div className={styles.footerColumn}>
             <h4>Resources</h4>
-            <Link href="/about">About Us</Link>
+            <a href="/about">About Us</a>
             <a href="https://docs.2extract.com" target="_blank" rel="noreferrer">Documentation</a>
             <a href="https://help.2extract.com" target="_blank" rel="noreferrer">Help Center</a>
           </div>
@@ -266,9 +249,9 @@ export default function PromoPage() {
 
           <div className={styles.footerColumn}>
             <h4>Legal</h4>
-            <a href="/terms">Terms of Service</a>
-            <a href="/privacy">Privacy Policy</a>
-            <a href="/aup">Acceptable Use (AUP)</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Acceptable Use (AUP)</a>
           </div>
         </div>
       </footer>
