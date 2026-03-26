@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './PromoPage.module.css';
-import { flagItems, navLinks, statItems } from './promo-data';
+import { featureItems, flagItems, navLinks, statItems, trustItems } from './promo-data';
 
 function CheckIcon() {
   return <span className={styles.checkIcon}>✓</span>;
@@ -90,14 +90,19 @@ export default function PromoPage() {
         <div className={styles.containerWide}>
           <h2 className={styles.sectionTitle}>A platform that scales with you</h2>
           <div className={styles.featuresGrid}>
-            {[1,2,3,4].map((idx) => (
-              <article key={idx} className={styles.featureImageCard}>
+            {featureItems.map((item, idx) => (
+              <article key={item.title} className={styles.featureCard}>
+                <div className={styles.featureIconWrap}>
+                  <Image src={item.icon} alt="" width={24} height={24} className={styles.featureIcon} />
+                </div>
+                <h3 className={styles.featureTitle}>{item.title}</h3>
+                <p className={styles.featureDescription}>{item.description}</p>
                 <Image
-                  src={`/images/feature${idx}.png`}
+                  src={idx % 2 === 0 ? '/icons/mask_1.svg' : '/icons/mask_2.svg'}
                   alt=""
-                  width={651}
-                  height={249}
-                  className={styles.featureScreenshot}
+                  width={180}
+                  height={180}
+                  className={idx % 2 === 0 ? styles.cardMask1 : styles.cardMask2}
                 />
               </article>
             ))}
@@ -148,15 +153,38 @@ export default function PromoPage() {
           </p>
 
           <div className={styles.ethicsGrid}>
-            {[1,2,3,4].map((idx) => (
-              <article key={idx} className={styles.ethicsImageCard}>
-                <Image
-                  src={`/images/trust${idx}.png`}
-                  alt=""
-                  width={idx === 3 ? 649 : idx === 2 ? 646 : idx === 4 ? 646 : 649}
-                  height={idx === 1 ? 261 : idx === 2 ? 379 : idx === 3 ? 490 : 371}
-                  className={styles.ethicsScreenshot}
-                />
+            {trustItems.map((item, idx) => (
+              <article key={item.title} className={`${styles.ethicsCard} ${styles[`ethicsCard${idx + 1}` as keyof typeof styles] || ''}`}>
+                <div className={styles.ethicsVisual}>
+                  {idx === 0 && (
+                    <>
+                      <Image src="/world_map.png" alt="" width={560} height={240} className={styles.ethicsVisualMap} />
+                      <span className={styles.networkDotOne} />
+                      <span className={styles.networkDotTwo} />
+                      <span className={styles.networkDotThree} />
+                    </>
+                  )}
+                  {idx === 1 && (
+                    <>
+                      <div className={styles.botnetCenter} />
+                      <span className={styles.botnetMiniOne} />
+                      <span className={styles.botnetMiniTwo} />
+                      <span className={styles.botnetMiniThree} />
+                    </>
+                  )}
+                  {idx === 2 && (
+                    <div className={styles.complianceBadgeRow}><span>GDPR</span><span>CCPA</span></div>
+                  )}
+                  {idx === 3 && (
+                    <>
+                      <div className={styles.aupShield}><Image src="/icons/heart.svg" alt="" width={28} height={28} /></div>
+                      <span className={styles.aupPillOne} />
+                      <span className={styles.aupPillTwo} />
+                    </>
+                  )}
+                </div>
+                <h3 className={styles.ethicsCardTitle}>{item.title}</h3>
+                <p className={styles.ethicsCardText}>{item.description}</p>
               </article>
             ))}
           </div>
