@@ -90,16 +90,27 @@ export default function PromoPage() {
         <div className={styles.containerWide}>
           <h2 className={styles.sectionTitle}>A platform that scales with you</h2>
           <div className={styles.featuresGrid}>
-            {featureItems.map((item, idx) => (
-              <article key={item.title} className={styles.featureCard}>
-                <div className={styles.featureIconWrap}>
-                  <Image src={item.icon} alt="" width={24} height={24} className={styles.featureIcon} />
-                </div>
-                <h3 className={styles.featureTitle}>{item.title}</h3>
-                <p className={styles.featureDescription}>{item.description}</p>
-                {idx === 0 && <div className={styles.featureShape1} aria-hidden="true" />}
-              </article>
-            ))}
+            {featureItems.map((item, idx) => {
+              const featureIcons = [
+                '/icons/app-window.svg',
+                '/icons/shield-check.svg',
+                '/icons/layout-dashboard.svg',
+                '/icons/rocket.svg',
+              ];
+              const iconSrc = featureIcons[idx] ?? item.icon;
+
+              return (
+                <article key={item.title} className={styles.featureCard}>
+                  <div className={styles.featureHeader}>
+                    <Image src={iconSrc} alt="" width={24} height={24} className={styles.featureIcon} />
+                    <h3 className={styles.featureTitle}>{item.title}</h3>
+                  </div>
+
+                  <p className={styles.featureDescription}>{item.description}</p>
+
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
