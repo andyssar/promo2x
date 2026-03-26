@@ -2,7 +2,7 @@
   background: #fafafa;
   color: #171717;
   overflow-x: hidden;
-}
+} 
 
 .containerWide {
   width: min(1320px, calc(100% - 40px));

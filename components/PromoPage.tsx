@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './PromoPage.module.css';
 import { featureItems, flagItems, navLinks, statItems, trustItems } from './promo-data';
-
+ 
 function CheckIcon() {
   return <span className={styles.checkIcon}>✓</span>;
 }
