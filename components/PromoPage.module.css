@@ -829,3 +829,38 @@
     font-size: 16px;
   }
 }
+
+
+.featureImageCard {
+  border-radius: 20px;
+  overflow: hidden;
+  line-height: 0;
+  background: transparent;
+}
+
+.featureScreenshot {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+}
+
+.ethicsImageCard {
+  border-radius: 20px;
+  overflow: hidden;
+  line-height: 0;
+  background: transparent;
+}
+
+.ethicsScreenshot {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+}
+
+/* hide old generated feature/trust styles when not used */
+.featureCard,
+.ethicsCard {
+  display: none;
+}
