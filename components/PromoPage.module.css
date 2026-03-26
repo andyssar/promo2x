@@ -352,8 +352,40 @@
   padding: 46px 46px 30px;
   border-radius: 20px;
   overflow: hidden;
-  background: linear-gradient(180deg, #bf4387 0%, #9d3471 100%);
+  background: linear-gradient(180deg, #b53471 0%, #833471 100%);
   color: #fff;
+}
+
+.featureCard:nth-child(3),
+.featureCard:nth-child(4) {
+  background: linear-gradient(180deg, #833471 0%, #b53471 100%);
+}
+
+.featureCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/icons/feature-shape-1.svg") no-repeat center/cover;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.featureCard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/icons/feature-shape-2.svg") no-repeat center/cover;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.featureCard:nth-child(2)::before,
+.featureCard:nth-child(4)::before {
+  transform: scaleX(-1);
+}
+
+.featureCard:nth-child(3)::after {
+  transform: rotate(180deg);
 }
 
 .featureHeader {
@@ -368,8 +400,11 @@
 .featureIcon {
   width: 24px;
   height: 24px;
-  opacity: 0.98;
+  opacity: 0.55;
+  filter: brightness(0) invert(1);
   flex: none;
+  position: relative;
+  z-index: 1;
 }
 
 .featureTitle {
@@ -394,26 +429,6 @@
   color: rgba(255,255,255,0.96);
 }
 
-.cardMask1,
-.cardMask2 {
-  position: absolute;
-  pointer-events: none;
-  opacity: 0.18;
-}
-
-.cardMask1 {
-  right: 42px;
-  bottom: -28px;
-  width: 180px;
-  height: auto;
-}
-
-.cardMask2 {
-  right: 64px;
-  top: -10px;
-  width: 160px;
-  height: auto;
-}
 
 @media (max-width: 1380px) {
   .featuresGrid {

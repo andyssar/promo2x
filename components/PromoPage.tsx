@@ -108,13 +108,6 @@ export default function PromoPage() {
 
                   <p className={styles.featureDescription}>{item.description}</p>
 
-                  <Image
-                    src={idx % 2 === 0 ? '/icons/mask_1.svg' : '/icons/mask_2.svg'}
-                    alt=""
-                    width={180}
-                    height={180}
-                    className={idx % 2 === 0 ? styles.cardMask1 : styles.cardMask2}
-                  />
                 </article>
               );
             })}
