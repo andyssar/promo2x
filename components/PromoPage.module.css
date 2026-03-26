@@ -174,7 +174,7 @@
 }
 
 .infrastructureSection {
-  padding: 96px 0;
+  padding-bottom: 20px;
   background: #fafafa;
 }
 
@@ -294,6 +294,7 @@
   justify-content: center;
   gap: 16px;
   flex-wrap: wrap;
+  margin-bottom: 0; 
 }
 
 .flagBadge {
@@ -323,6 +324,7 @@
 
 .featuresSection {
   padding: 100px 0 90px;
+  padding-top: 96px;
   background: #fafafa;
 }
 
