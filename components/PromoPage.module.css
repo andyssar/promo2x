@@ -325,7 +325,7 @@
 }
 
 .featuresSection {
-  padding: 96px 0 90px;
+  padding: 100px 0 90px;
   background: #fafafa;
 }
 
@@ -354,10 +354,6 @@
   overflow: hidden;
   background: linear-gradient(180deg, #bf4387 0%, #9d3471 100%);
   color: #fff;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
 }
 
 .featureHeader {
@@ -366,19 +362,14 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 30px;
-}
-
-.featureIconWrap {
-  display: none;
+  margin: 0;
 }
 
 .featureIcon {
   width: 24px;
   height: 24px;
+  opacity: 0.98;
   flex: none;
-  display: block;
-  opacity: 0.95;
 }
 
 .featureTitle {
@@ -386,19 +377,18 @@
   z-index: 1;
   margin: 0;
   font-family: var(--font-geist), Arial, sans-serif;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 120%;
-  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 150%;
 }
 
 .featureDescription {
   position: relative;
   z-index: 1;
-  margin: 0;
-  max-width: 520px;
+  margin: 30px 0 0 36px;
+  max-width: 500px;
   font-family: var(--font-geist), Arial, sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 150%;
   color: rgba(255,255,255,0.96);
@@ -425,11 +415,36 @@
   height: auto;
 }
 
-.cardMask2 {
-  right: 64px;
-  top: -10px;
-  width: 160px;
-  height: auto;
+@media (max-width: 1380px) {
+  .featuresGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .featuresSection {
+    padding: 72px 0;
+  }
+
+  .featuresGrid {
+    margin-top: 56px;
+    grid-template-columns: 1fr;
+  }
+
+  .featureCard {
+    min-height: auto;
+    padding: 32px 24px 24px;
+  }
+
+  .featureTitle {
+    font-size: 18px;
+  }
+
+  .featureDescription {
+    margin: 24px 0 0 36px;
+    max-width: none;
+    font-size: 15px;
+  }
 }
 
 .pricingSection {
@@ -851,6 +866,7 @@
   }
 
   .featureDescription {
+    margin-top: 24px;
     font-size: 15px;
   }
 
