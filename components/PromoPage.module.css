@@ -325,37 +325,59 @@
 }
 
 .featuresSection {
-  padding: 100px 0 90px;
+  padding: 96px 0 90px;
   background: #fafafa;
 }
 
 .featuresGrid {
-  margin-top: 72px;
-  display: grid;
-  grid-template-columns: repeat(2, 648px);
-  justify-content: space-between;
+  max-width: 1320px;
+  height: min-content;
+  overflow: hidden;
+  z-index: 2;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(648px, 1fr));
+  grid-auto-rows: minmax(0, 1fr);
+  justify-content: center;
   gap: 24px;
+  width: 100%;
+  padding: 0;
+  display: grid;
+  position: relative;
+  margin: 72px auto 0;
 }
 
 .featureCard {
   position: relative;
-  height: 204px;
+  min-height: 204px;
   padding: 46px 46px 30px;
   border-radius: 20px;
   overflow: hidden;
   background: linear-gradient(180deg, #bf4387 0%, #9d3471 100%);
   color: #fff;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.featureHeader {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
 }
 
 .featureIconWrap {
-  position: relative;
-  z-index: 1;
-  width: 24px;
-  height: 24px;
-  margin-bottom: 12px;
+  display: none;
 }
 
 .featureIcon {
+  width: 24px;
+  height: 24px;
+  flex: none;
+  display: block;
   opacity: 0.95;
 }
 
@@ -365,19 +387,21 @@
   margin: 0;
   font-family: var(--font-geist), Arial, sans-serif;
   font-size: 18px;
-  font-weight: 500;
-  line-height: 150%;
+  font-weight: 600;
+  line-height: 120%;
+  color: #fff;
 }
 
 .featureDescription {
   position: relative;
   z-index: 1;
-  margin: 46px 0 0;
+  margin: 0;
   max-width: 520px;
   font-family: var(--font-geist), Arial, sans-serif;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 400;
   line-height: 150%;
-  color: rgba(255,255,255,0.92);
+  color: rgba(255,255,255,0.96);
 }
 
 .cardMask1,
@@ -391,6 +415,13 @@
   right: 42px;
   bottom: -28px;
   width: 180px;
+  height: auto;
+}
+
+.cardMask2 {
+  right: 64px;
+  top: -10px;
+  width: 160px;
   height: auto;
 }
 
@@ -820,7 +851,6 @@
   }
 
   .featureDescription {
-    margin-top: 24px;
     font-size: 15px;
   }
 

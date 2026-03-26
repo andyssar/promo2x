@@ -92,10 +92,10 @@ export default function PromoPage() {
           <div className={styles.featuresGrid}>
             {featureItems.map((item, idx) => (
               <article key={item.title} className={styles.featureCard}>
-                <div className={styles.featureIconWrap}>
+                <div className={styles.featureHeader}>
                   <Image src={item.icon} alt="" width={24} height={24} className={styles.featureIcon} />
+                  <h3 className={styles.featureTitle}>{item.title}</h3>
                 </div>
-                <h3 className={styles.featureTitle}>{item.title}</h3>
                 <p className={styles.featureDescription}>{item.description}</p>
                 <Image
                   src={idx % 2 === 0 ? '/icons/mask_1.svg' : '/icons/mask_2.svg'}
