@@ -57,3 +57,42 @@ export const trustItems = [
 ];
 
 export const metricPills = ['High uptime', 'Fast rotation', 'Global coverage', 'Stable sessions'];
+
+export const infrastructureStats = [
+  {
+    value: '10M+',
+    label: 'Ethically Sourced IPs',
+    icon: '/icons/heart.svg',
+  },
+  {
+    value: '195+',
+    label: 'Countries Covered',
+    icon: '/icons/globe.svg',
+  },
+  {
+    value: '~99%',
+    label: 'Success Rate',
+    icon: '/icons/gauge.svg',
+  },
+];
+
+export const flagItems = [
+  { alt: 'United States', src: '/flags/us.png' },
+  { alt: 'United Kingdom', src: '/flags/uk.png' },
+  { alt: 'Germany', src: '/flags/de.png' },
+  { alt: 'Canada', src: '/flags/ca.png' },
+  { alt: 'France', src: '/flags/fr.png' },
+  { alt: 'Japan', src: '/flags/jp.png' },
+  { alt: 'Brazil', src: '/flags/br.png' },
+  { alt: 'India', src: '/flags/in.png' },
+  { alt: 'Australia', src: '/flags/au.png' },
+  { alt: 'South Korea', src: '/flags/kr.png' },
+  { alt: 'Netherlands', src: '/flags/nl.png' },
+  { alt: 'Italy', src: '/flags/it.png' },
+  { alt: 'Spain', src: '/flags/es.png' },
+  { alt: 'Poland', src: '/flags/pl.png' },
+  { alt: 'Turkey', src: '/flags/tr.png' },
+  { alt: 'Mexico', src: '/flags/mx.png' },
+  { alt: 'Sweden', src: '/flags/se.png' },
+  { alt: 'China', src: '/flags/cn.png' },
+];
