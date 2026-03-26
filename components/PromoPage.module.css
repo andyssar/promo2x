@@ -893,3 +893,25 @@
     font-size: 16px;
   }
 }
+
+
+/* FEATURE SHAPE FIRST CARD */
+.featureShape1 {
+  position: absolute;
+  width: 648px;
+  height: 204px;
+  top: 4px;
+  right: 0px;
+  background-image: url("/icons/feature-shape-1.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right top;
+  opacity: 1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.featureCard > * {
+  position: relative;
+  z-index: 1;
+}
