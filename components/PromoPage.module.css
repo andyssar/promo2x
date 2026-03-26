@@ -495,8 +495,6 @@
   bottom: -100px;
   left: 168px;
 }
-
-.cardMask1,
 @media (max-width: 1380px) {
   .featuresGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
