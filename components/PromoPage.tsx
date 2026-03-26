@@ -25,7 +25,7 @@ export default function PromoPage() {
 
             <div className={styles.headerActions}>
               <Link href="/signin" className={styles.signIn}>
-                <Image src="/icons/signin.svg" alt="" width={16} height={16} aria-hidden="true" />
+                <Image src="/icons/signin.svg" alt="" width={16} height={16} aria-hidden="true" className={styles.signInIcon} />
                 <span>Sign In</span>
               </Link>
               <Link href="/app/signup" className={styles.primaryButton}>Start Now</Link>
@@ -55,7 +55,7 @@ export default function PromoPage() {
         <div className={styles.containerWide}>
           <h2 className={styles.sectionTitle}>Infrastructure built for enterprise demands</h2>
           <div className={styles.worldMapWrap}>
-            <Image src="/world-map.png" alt="" width={1885} height={670} className={styles.worldMap} />
+            <Image src="/world_map.png" alt="" width={1885} height={670} className={styles.worldMap} />
 
             <div className={styles.statsPanel}>
               {statItems.map((item) => (
@@ -76,7 +76,9 @@ export default function PromoPage() {
             <div className={styles.flagsRow}>
               {flagItems.map((flag) => (
                 <div key={flag.alt} className={styles.flagBadge}>
-                  <Image src={flag.src} alt={flag.alt} fill className={styles.flagImage} />
+                  <div className={styles.flagInner}>
+                    <Image src={flag.src} alt={flag.alt} fill className={styles.flagImage} />
+                  </div>
                 </div>
               ))}
             </div>
@@ -91,7 +93,7 @@ export default function PromoPage() {
             {featureItems.map((item, idx) => (
               <article key={item.title} className={styles.featureCard}>
                 <div className={styles.featureIconWrap}>
-                  <Image src={item.icon} alt="" width={18} height={18} className={styles.featureIcon} />
+                  <Image src={item.icon} alt="" width={24} height={24} className={styles.featureIcon} />
                 </div>
                 <h3 className={styles.featureTitle}>{item.title}</h3>
                 <p className={styles.featureDescription}>{item.description}</p>
@@ -120,6 +122,7 @@ export default function PromoPage() {
 
             <article className={styles.pricingCard}>
               <div className={styles.pricingCardLabel}>Flex Pay-As-You-Go</div>
+              <div className={styles.pricingDivider} />
               <div className={styles.priceRow}>
                 <span className={styles.priceFrom}>from</span>
                 <strong className={styles.priceValue}>$0.70</strong>
@@ -134,7 +137,9 @@ export default function PromoPage() {
                 <li><CheckIcon /> No long-term contracts</li>
                 <li><CheckIcon /> Start with a minimum $10 top-up</li>
               </ul>
-              <Link href="/app/signup" className={styles.primaryButtonLarge}>Get Started &amp; Secure Your Rate</Link>
+              <div className={styles.pricingButtonWrap}>
+                <Link href="/app/signup" className={styles.primaryButtonLarge}>Get Started &amp; Secure Your Rate</Link>
+              </div>
             </article>
           </div>
         </div>
@@ -149,12 +154,34 @@ export default function PromoPage() {
 
           <div className={styles.ethicsGrid}>
             {trustItems.map((item, idx) => (
-              <article key={item.title} className={styles.ethicsCard}>
+              <article key={item.title} className={`${styles.ethicsCard} ${styles[`ethicsCard${idx + 1}` as keyof typeof styles] || ''}`}>
                 <div className={styles.ethicsVisual}>
-                  {idx === 0 && <Image src="/world-map.png" alt="" width={540} height={180} className={styles.ethicsVisualMap} />}
-                  {idx === 1 && <div className={styles.ethicsOrbGreen} />}
-                  {idx === 2 && <div className={styles.ethicsBadgeRow}><span>GDPR</span><span>CCPA</span></div>}
-                  {idx === 3 && <div className={styles.ethicsShield}><Image src="/icons/heart.svg" alt="" width={26} height={26} /></div>}
+                  {idx === 0 && (
+                    <>
+                      <Image src="/world_map.png" alt="" width={560} height={240} className={styles.ethicsVisualMap} />
+                      <span className={styles.networkDotOne} />
+                      <span className={styles.networkDotTwo} />
+                      <span className={styles.networkDotThree} />
+                    </>
+                  )}
+                  {idx === 1 && (
+                    <>
+                      <div className={styles.botnetCenter} />
+                      <span className={styles.botnetMiniOne} />
+                      <span className={styles.botnetMiniTwo} />
+                      <span className={styles.botnetMiniThree} />
+                    </>
+                  )}
+                  {idx === 2 && (
+                    <div className={styles.complianceBadgeRow}><span>GDPR</span><span>CCPA</span></div>
+                  )}
+                  {idx === 3 && (
+                    <>
+                      <div className={styles.aupShield}><Image src="/icons/heart.svg" alt="" width={28} height={28} /></div>
+                      <span className={styles.aupPillOne} />
+                      <span className={styles.aupPillTwo} />
+                    </>
+                  )}
                 </div>
                 <h3 className={styles.ethicsCardTitle}>{item.title}</h3>
                 <p className={styles.ethicsCardText}>{item.description}</p>
@@ -169,6 +196,11 @@ export default function PromoPage() {
           <div className={styles.footerGrid}>
             <div className={styles.footerBrand}>
               <Image src="/logo.svg" alt="2extract" width={92} height={20} />
+              <div className={styles.footerSocials}>
+                <a href="https://linkedin.com" aria-label="LinkedIn"><Image src="/icons/linkedin.svg" alt="" width={24} height={24} /></a>
+                <a href="https://github.com" aria-label="GitHub"><Image src="/icons/github.svg" alt="" width={24} height={24} /></a>
+                <a href="https://discord.gg" aria-label="Discord"><Image src="/icons/discord.svg" alt="" width={24} height={24} /></a>
+              </div>
               <p>© 2025 2extract.<br />All rights reserved.</p>
             </div>
             <div className={styles.footerColumn}>
