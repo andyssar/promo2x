@@ -361,33 +361,6 @@
   background: linear-gradient(180deg, #833471 0%, #b53471 100%);
 }
 
-.featureCard::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("/icons/feature-shape-1.svg") no-repeat center/cover;
-  opacity: 0.25;
-  pointer-events: none;
-}
-
-.featureCard::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("/icons/feature-shape-2.svg") no-repeat center/cover;
-  opacity: 0.2;
-  pointer-events: none;
-}
-
-.featureCard:nth-child(2)::before,
-.featureCard:nth-child(4)::before {
-  transform: scaleX(-1);
-}
-
-.featureCard:nth-child(3)::after {
-  transform: rotate(180deg);
-}
-
 .featureHeader {
   position: relative;
   z-index: 1;
@@ -403,8 +376,6 @@
   opacity: 0.55;
   filter: brightness(0) invert(1);
   flex: none;
-  position: relative;
-  z-index: 1;
 }
 
 .featureTitle {
@@ -429,7 +400,103 @@
   color: rgba(255,255,255,0.96);
 }
 
+.featureCard > * {
+  position: relative;
+  z-index: 1;
+}
 
+.featureShape {
+  position: absolute;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 0;
+}
+
+.featureShape1 {
+  width: 330px;
+  height: 330px;
+  background-image: url("/icons/feature-shape-1.svg");
+  opacity: 0.26;
+}
+
+.featureShape2 {
+  width: 250px;
+  height: 250px;
+  background-image: url("/icons/feature-shape-2.svg");
+  opacity: 0.20;
+}
+
+.featureShape3 {
+  width: 210px;
+  height: 210px;
+  background-image: url("/icons/feature-shape-3.svg");
+  opacity: 0.18;
+}
+
+/* Card 1 */
+.featureCard:nth-child(1) .featureShape1 {
+  top: -48px;
+  right: -6px;
+}
+.featureCard:nth-child(1) .featureShape2 {
+  top: -34px;
+  right: -38px;
+}
+.featureCard:nth-child(1) .featureShape3 {
+  bottom: -96px;
+  left: 210px;
+}
+
+/* Card 2 */
+.featureCard:nth-child(2) .featureShape1 {
+  top: -48px;
+  left: -6px;
+  transform: scaleX(-1);
+}
+.featureCard:nth-child(2) .featureShape2 {
+  top: -34px;
+  left: -38px;
+  transform: scaleX(-1);
+}
+.featureCard:nth-child(2) .featureShape3 {
+  top: -110px;
+  left: 140px;
+}
+
+/* Card 3 */
+.featureCard:nth-child(3) .featureShape1 {
+  bottom: -62px;
+  right: -10px;
+  transform: rotate(180deg);
+}
+.featureCard:nth-child(3) .featureShape2 {
+  top: -30px;
+  left: -42px;
+  transform: rotate(180deg);
+}
+.featureCard:nth-child(3) .featureShape3 {
+  top: -104px;
+  left: 176px;
+}
+
+/* Card 4 */
+.featureCard:nth-child(4) .featureShape1 {
+  bottom: -62px;
+  left: -10px;
+  transform: rotate(180deg) scaleX(-1);
+}
+.featureCard:nth-child(4) .featureShape2 {
+  top: -30px;
+  right: -42px;
+  transform: rotate(180deg) scaleX(-1);
+}
+.featureCard:nth-child(4) .featureShape3 {
+  bottom: -100px;
+  left: 168px;
+}
+
+.cardMask1,
 @media (max-width: 1380px) {
   .featuresGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));

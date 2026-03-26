@@ -108,6 +108,9 @@ export default function PromoPage() {
 
                   <p className={styles.featureDescription}>{item.description}</p>
 
+                  <div className={`${styles.featureShape} ${styles.featureShape1}`} aria-hidden="true" />
+                  <div className={`${styles.featureShape} ${styles.featureShape2}`} aria-hidden="true" />
+                  <div className={`${styles.featureShape} ${styles.featureShape3}`} aria-hidden="true" />
                 </article>
               );
             })}
