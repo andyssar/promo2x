@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './PromoPage.module.css';
+import { infrastructureStats, flagItems } from './promo-data';
 
 export default function PromoPage() {
   return (
@@ -73,7 +74,63 @@ export default function PromoPage() {
           </div>
         </div>
       </section>
+<section className={styles.infrastructureSection}>
+  <div className={styles.infrastructureInner}>
+    <h2 className={styles.infrastructureTitle}>
+      Infrastructure built for enterprise demands
+    </h2>
 
+    <div className={styles.infrastructureMapWrap}>
+      <Image
+        src="/world-map.png"
+        alt=""
+        width={1600}
+        height={700}
+        className={styles.infrastructureMap}
+      />
+
+      <div className={styles.statsPanel}>
+        {infrastructureStats.map((item) => (
+          <article key={item.label} className={styles.statItem}>
+            <div className={styles.statValue}>{item.value}</div>
+
+            <div className={styles.statMeta}>
+              {item.icon ? (
+                <Image
+                  src={item.icon}
+                  alt=""
+                  width={18}
+                  height={18}
+                  className={styles.statIcon}
+                />
+              ) : null}
+              <div className={styles.statLabel}>{item.label}</div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <p className={styles.infrastructureText}>
+        Our robust infrastructure provides the reliability and scale required for
+        mission-critical data operations.
+      </p>
+
+      <div className={styles.flagsRow}>
+        {flagItems.map((flag) => (
+          <div key={flag.alt} className={styles.flagBadge}>
+            <Image
+              src={flag.src}
+              alt={flag.alt}
+              width={44}
+              height={44}
+              className={styles.flagImage}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
       <section id="features" className={styles.stubSection}>
         <h2>Features section</h2>
       </section>
