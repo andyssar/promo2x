@@ -245,7 +245,7 @@
 .statValue {
   font-family: var(--font-geist), Arial, sans-serif;
   font-size: clamp(64px, 7vw, 100px);
-  font-weight: 300;
+  font-weight: 100;
   line-height: 100%;
   color: #9d3471;
   white-space: nowrap;
