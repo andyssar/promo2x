@@ -1,7 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './PromoPage.module.css';
-import { featureItems, flagItems, navLinks, statItems } from './promo-data';
+import { featureItems, flagItems, navLinks, statItems, trustItems } from './promo-data';
+
+function CheckIcon() {
+  return <span className={styles.checkIcon}>✓</span>;
+}
 
 export default function PromoPage() {
   return (
@@ -21,7 +25,7 @@ export default function PromoPage() {
 
             <div className={styles.headerActions}>
               <Link href="/signin" className={styles.signIn}>
-                <Image src="/icons/signin.svg" alt="" width={14} height={14} aria-hidden="true" />
+                <Image src="/icons/signin.svg" alt="" width={16} height={16} aria-hidden="true" />
                 <span>Sign In</span>
               </Link>
               <Link href="/app/signup" className={styles.primaryButton}>Start Now</Link>
@@ -72,7 +76,7 @@ export default function PromoPage() {
             <div className={styles.flagsRow}>
               {flagItems.map((flag) => (
                 <div key={flag.alt} className={styles.flagBadge}>
-                  <Image src={flag.src} alt={flag.alt} width={40} height={40} className={styles.flagImage} />
+                  <Image src={flag.src} alt={flag.alt} fill className={styles.flagImage} />
                 </div>
               ))}
             </div>
@@ -81,25 +85,119 @@ export default function PromoPage() {
       </section>
 
       <section id="features" className={styles.featuresSection}>
-        <div className={styles.container}>
+        <div className={styles.containerWide}>
           <h2 className={styles.sectionTitle}>A platform that scales with you</h2>
           <div className={styles.featuresGrid}>
             {featureItems.map((item, idx) => (
               <article key={item.title} className={styles.featureCard}>
                 <div className={styles.featureIconWrap}>
-                  <Image src={item.icon} alt="" width={16} height={16} className={idx === 1 || idx === 2 ? styles.featureMask : undefined} />
+                  <Image src={item.icon} alt="" width={18} height={18} className={styles.featureIcon} />
                 </div>
                 <h3 className={styles.featureTitle}>{item.title}</h3>
                 <p className={styles.featureDescription}>{item.description}</p>
-                <div className={idx % 2 === 0 ? styles.cardMask1 : styles.cardMask2} aria-hidden="true" />
+                <Image
+                  src={idx % 2 === 0 ? '/icons/mask_1.svg' : '/icons/mask_2.svg'}
+                  alt=""
+                  width={180}
+                  height={180}
+                  className={idx % 2 === 0 ? styles.cardMask1 : styles.cardMask2}
+                />
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="pricing" className={styles.stubSection}><div className={styles.container}><h2 className={styles.sectionTitle}>Pricing</h2></div></section>
-      <section id="ethics" className={styles.stubSection}><div className={styles.container}><h2 className={styles.sectionTitle}>Ethics</h2></div></section>
+      <section id="pricing" className={styles.pricingSection}>
+        <div className={styles.pricingGlowLeft} aria-hidden="true" />
+        <div className={styles.pricingGlowRight} aria-hidden="true" />
+        <div className={styles.containerWide}>
+          <div className={styles.pricingInner}>
+            <h2 className={`${styles.sectionTitle} ${styles.sectionTitleLight}`}>An exclusive rate for high-volume partners</h2>
+            <p className={`${styles.bodyText} ${styles.pricingBody}`}>
+              We provide premium infrastructure and personalized pricing for businesses that operate at scale.
+            </p>
+
+            <article className={styles.pricingCard}>
+              <div className={styles.pricingCardLabel}>Flex Pay-As-You-Go</div>
+              <div className={styles.priceRow}>
+                <span className={styles.priceFrom}>from</span>
+                <strong className={styles.priceValue}>$0.70</strong>
+                <span className={styles.priceUnit}>/ per GB</span>
+              </div>
+              <p className={styles.pricingCardText}>
+                To lock in your volume rate, simply top up your balance and contact our support.
+              </p>
+              <ul className={styles.pricingList}>
+                <li><CheckIcon /> Guaranteed volume discounts</li>
+                <li><CheckIcon /> Dedicated account &amp; support expert</li>
+                <li><CheckIcon /> No long-term contracts</li>
+                <li><CheckIcon /> Start with a minimum $10 top-up</li>
+              </ul>
+              <Link href="/app/signup" className={styles.primaryButtonLarge}>Get Started &amp; Secure Your Rate</Link>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="ethics" className={styles.ethicsSection}>
+        <div className={styles.containerWide}>
+          <h2 className={styles.sectionTitle}>A partner you can trust</h2>
+          <p className={styles.ethicsText}>
+            Our commitment to a 100% ethically-sourced network protects your brand&apos;s reputation and ensures long-term operational stability.
+          </p>
+
+          <div className={styles.ethicsGrid}>
+            {trustItems.map((item, idx) => (
+              <article key={item.title} className={styles.ethicsCard}>
+                <div className={styles.ethicsVisual}>
+                  {idx === 0 && <Image src="/world-map.png" alt="" width={540} height={180} className={styles.ethicsVisualMap} />}
+                  {idx === 1 && <div className={styles.ethicsOrbGreen} />}
+                  {idx === 2 && <div className={styles.ethicsBadgeRow}><span>GDPR</span><span>CCPA</span></div>}
+                  {idx === 3 && <div className={styles.ethicsShield}><Image src="/icons/heart.svg" alt="" width={26} height={26} /></div>}
+                </div>
+                <h3 className={styles.ethicsCardTitle}>{item.title}</h3>
+                <p className={styles.ethicsCardText}>{item.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <footer className={styles.footer}>
+        <div className={styles.containerWide}>
+          <div className={styles.footerGrid}>
+            <div className={styles.footerBrand}>
+              <Image src="/logo.svg" alt="2extract" width={92} height={20} />
+              <p>© 2025 2extract.<br />All rights reserved.</p>
+            </div>
+            <div className={styles.footerColumn}>
+              <h4>Product</h4>
+              <a href="#features">Features</a>
+              <a href="#pricing">Pricing</a>
+              <a href="#ethics">Ethics</a>
+            </div>
+            <div className={styles.footerColumn}>
+              <h4>Resources</h4>
+              <a href="/about">About Us</a>
+              <a href="https://docs.2extract.com">Documentation</a>
+              <a href="https://help.2extract.com">Help Center</a>
+            </div>
+            <div className={styles.footerColumn}>
+              <h4>Community</h4>
+              <a href="https://discord.gg">Discord Community</a>
+              <a href="https://github.com">GitHub</a>
+              <a href="https://linkedin.com">LinkedIn</a>
+            </div>
+            <div className={styles.footerColumn}>
+              <h4>Legal</h4>
+              <a href="#">Terms of Service</a>
+              <a href="#">Privacy Policy</a>
+              <a href="#">Acceptable Use (AUP)</a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }

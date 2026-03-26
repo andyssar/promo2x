@@ -1,12 +1,11 @@
 .page {
-  background: #f5f5f5;
+  background: #fafafa;
   color: #171717;
   overflow-x: hidden;
 }
 
-.containerWide,
-.container {
-  width: min(1320px, calc(100% - 32px));
+.containerWide {
+  width: min(1320px, calc(100% - 40px));
   margin: 0 auto;
 }
 
@@ -14,7 +13,7 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(245, 245, 245, 0.94);
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(23, 23, 23, 0.06);
 }
@@ -39,29 +38,42 @@
   gap: 32px;
 }
 
-.nav a,
-.signIn {
+.nav a {
   font-family: var(--font-geist), Arial, sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 150%;
-  letter-spacing: 0;
-  text-align: center;
   color: #171717;
+  text-decoration: none;
 }
 
 .headerActions {
   justify-self: end;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .signIn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px 10px;
+  gap: 8px;
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 10px;
+  background: #f5f5f5;
+  color: #171717;
+  font-family: var(--font-geist), Arial, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.signIn:hover {
+  background: #9d3471;
+  color: #fff;
 }
 
 .primaryButton,
@@ -72,7 +84,7 @@
   background: #9d3471;
   color: #fff;
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: 10px;
   transition: background 0.2s ease;
   font-family: var(--font-geist), Arial, sans-serif;
   font-weight: 500;
@@ -84,23 +96,24 @@
 }
 
 .primaryButton {
-  min-width: 87px;
-  height: 32px;
-  padding: 0 14px;
-  font-size: 13px;
+  min-width: 101px;
+  height: 40px;
+  padding: 0 18px;
+  font-size: 16px;
 }
 
 .primaryButtonLarge {
-  min-width: 147px;
-  height: 36px;
-  padding: 0 16px;
-  font-size: 13px;
-  margin-top: 22px;
+  min-width: 176px;
+  height: 48px;
+  padding: 0 20px;
+  font-size: 18px;
+  margin-top: 26px;
 }
 
 .heroSection {
   position: relative;
-  padding: 28px 0 0;
+  padding: 34px 0 0;
+  background: #fff;
 }
 
 .heroBg {
@@ -112,12 +125,13 @@
 .heroBgImage {
   object-fit: contain;
   object-position: left top;
+  opacity: 0.42;
 }
 
 .heroInner {
   position: relative;
   z-index: 1;
-  padding-top: 40px;
+  padding-top: 42px;
   text-align: center;
 }
 
@@ -128,35 +142,37 @@
   font-weight: 600;
   font-size: 96px;
   line-height: 120%;
-  letter-spacing: 0;
 }
 
 .bodyText {
   margin: 18px auto 0;
-  max-width: 600px;
+  max-width: 700px;
   font-family: var(--font-geist), Arial, sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 150%;
-  color: #b55d88;
   text-align: center;
+  color: #b85d8a;
 }
 
 .dashboardWrap {
-  margin: 44px auto 0;
+  margin: 46px auto 0;
   max-width: 1320px;
 }
 
 .dashboardImage {
   width: 100%;
   height: auto;
+  display: block;
 }
 
 .infrastructureSection {
-  padding: 76px 0 70px;
+  padding: 72px 0 80px;
+  background: #fafafa;
 }
 
-.sectionTitle {
+.sectionTitle,
+.ethicsCardTitle {
   margin: 0;
   font-family: var(--font-geist), Arial, sans-serif;
   font-weight: 600;
@@ -166,20 +182,24 @@
   text-align: center;
 }
 
+.sectionTitleLight {
+  color: #fff;
+}
+
 .worldMapWrap {
   position: relative;
   margin-top: 18px;
-  min-height: 560px;
+  min-height: 590px;
 }
 
 .worldMap {
   position: absolute;
   left: 50%;
-  top: 6px;
+  bottom: 34px;
   transform: translateX(-50%);
-  width: min(100%, 1600px);
+  width: min(1600px, 100%);
   height: auto;
-  opacity: 0.24;
+  opacity: 0.27;
   pointer-events: none;
 }
 
@@ -188,13 +208,13 @@
   z-index: 1;
   margin: 76px auto 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.86);
   border: 1px solid rgba(23, 23, 23, 0.08);
   border-radius: 22px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   overflow: hidden;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(6px);
 }
 
 .statCard {
@@ -207,14 +227,15 @@
   border-right: 1px solid rgba(23, 23, 23, 0.08);
 }
 
-.statCard:last-child { border-right: 0; }
+.statCard:last-child {
+  border-right: 0;
+}
 
 .statValue {
   font-family: var(--font-geist), Arial, sans-serif;
   font-size: clamp(64px, 7vw, 100px);
   font-weight: 300;
   line-height: 100%;
-  letter-spacing: 0;
   color: #9d3471;
   white-space: nowrap;
 }
@@ -238,9 +259,12 @@
   color: #171717;
 }
 
-.statLabel span { display: block; }
+.statLabel span {
+  display: block;
+}
 
-.infrastructureText {
+.infrastructureText,
+.ethicsText {
   position: relative;
   z-index: 1;
   max-width: 740px;
@@ -265,24 +289,24 @@
 }
 
 .flagBadge {
-  width: 46px;
-  height: 46px;
+  position: relative;
+  width: 44px;
+  height: 44px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.92);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: rgba(255,255,255,0.96);
   box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  overflow: hidden;
+  flex: 0 0 44px;
 }
 
 .flagImage {
-  width: 38px;
-  height: 38px;
+  object-fit: cover;
   border-radius: 999px;
 }
 
 .featuresSection {
-  padding: 48px 0 80px;
+  padding: 52px 0 88px;
+  background: #fafafa;
 }
 
 .featuresGrid {
@@ -294,7 +318,7 @@
 
 .featureCard {
   position: relative;
-  min-height: 170px;
+  min-height: 172px;
   padding: 24px 24px 22px;
   border-radius: 10px;
   overflow: hidden;
@@ -310,14 +334,15 @@
   margin-bottom: 14px;
 }
 
-.featureMask {
-  opacity: 0.85;
+.featureIcon {
+  opacity: 0.9;
 }
 
 .featureTitle {
   position: relative;
   z-index: 1;
   margin: 0;
+  font-family: var(--font-geist), Arial, sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 150%;
@@ -327,49 +352,312 @@
   position: relative;
   z-index: 1;
   margin: 10px 0 0;
+  font-family: var(--font-geist), Arial, sans-serif;
   font-size: 14px;
   line-height: 150%;
   color: rgba(255,255,255,0.92);
-  max-width: 530px;
+  max-width: 540px;
 }
 
 .cardMask1,
 .cardMask2 {
   position: absolute;
-  inset: auto -20px -36px auto;
-  width: 220px;
-  height: 220px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.07);
-  filter: blur(0.2px);
+  pointer-events: none;
+  opacity: 0.18;
+}
+
+.cardMask1 {
+  right: 42px;
+  bottom: -28px;
+  width: 180px;
+  height: auto;
 }
 
 .cardMask2 {
-  inset: -40px auto auto 48%;
-  width: 180px;
+  right: 64px;
+  top: -10px;
+  width: 160px;
+  height: auto;
+}
+
+.pricingSection {
+  position: relative;
+  overflow: hidden;
+  background: #040404;
+  padding: 82px 0 96px;
+}
+
+.pricingGlowLeft,
+.pricingGlowRight {
+  position: absolute;
+  top: 120px;
+  width: 520px;
   height: 180px;
+  border-radius: 999px;
+  filter: blur(26px);
+  background: radial-gradient(circle, rgba(223,85,160,0.82) 0%, rgba(223,85,160,0.32) 35%, rgba(223,85,160,0.08) 60%, transparent 72%);
+  opacity: 0.9;
 }
 
-.stubSection {
-  padding: 24px 0 70px;
+.pricingGlowLeft {
+  left: -100px;
+  transform: rotate(10deg);
 }
 
-@media (max-width: 1100px) {
-  .heroTitle { font-size: 72px; }
+.pricingGlowRight {
+  right: -100px;
+  transform: rotate(-10deg);
+}
+
+.pricingInner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.pricingBody {
+  color: rgba(255,255,255,0.72);
+}
+
+.pricingCard {
+  margin: 34px auto 0;
+  width: 100%;
+  max-width: 360px;
+  background: #fff;
+  border-radius: 18px;
+  padding: 28px 24px 26px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.26);
+}
+
+.pricingCardLabel {
+  font-family: var(--font-geist), Arial, sans-serif;
+  font-size: 14px;
+  color: #555;
+  text-align: center;
+}
+
+.priceRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 6px;
+  margin: 18px 0 14px;
+}
+
+.priceFrom,
+.priceUnit {
+  font-family: var(--font-geist), Arial, sans-serif;
+  font-size: 14px;
+  color: #666;
+}
+
+.priceValue {
+  font-family: var(--font-geist), Arial, sans-serif;
+  font-size: 54px;
+  line-height: 100%;
+  color: #171717;
+}
+
+.pricingCardText {
+  margin: 0;
+  font-family: var(--font-geist), Arial, sans-serif;
+  font-size: 14px;
+  line-height: 150%;
+  color: #6b6b6b;
+  text-align: center;
+}
+
+.pricingList {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 22px;
+}
+
+.pricingList li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-geist), Arial, sans-serif;
+  font-size: 14px;
+  line-height: 150%;
+  color: #222;
+  margin-bottom: 8px;
+}
+
+.checkIcon {
+  color: #7db64f;
+  font-weight: 700;
+}
+
+.ethicsSection {
+  padding: 78px 0 86px;
+  background: #fafafa;
+}
+
+.ethicsGrid {
+  margin-top: 34px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.ethicsCard {
+  min-height: 278px;
+  padding: 22px;
+  border-radius: 16px;
+  border: 1px solid rgba(23,23,23,0.06);
+  background: rgba(255,255,255,0.72);
+}
+
+.ethicsVisual {
+  position: relative;
+  height: 110px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #f9f9f9, #f1f1f1);
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+
+.ethicsVisualMap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.18;
+}
+
+.ethicsOrbGreen {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  width: 84px;
+  height: 84px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(60,200,145,0.85) 0%, rgba(60,200,145,0.25) 38%, rgba(60,200,145,0.05) 64%, transparent 72%);
+}
+
+.ethicsBadgeRow {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 18px;
+  font-family: var(--font-geist), Arial, sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.ethicsBadgeRow span:first-child {
+  color: #4285c5;
+}
+
+.ethicsBadgeRow span:last-child {
+  color: #dd4a74;
+}
+
+.ethicsShield {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  width: 76px;
+  height: 76px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, #ffffff 0%, #ebf7ef 70%);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.ethicsCardTitle {
+  text-align: left;
+  font-size: 24px;
+}
+
+.ethicsCardText {
+  margin: 10px 0 0;
+  font-family: var(--font-geist), Arial, sans-serif;
+  font-size: 16px;
+  line-height: 150%;
+  color: rgba(23,23,23,0.66);
+}
+
+.footer {
+  padding: 26px 0 40px;
+  background: #fafafa;
+}
+
+.footerGrid {
+  border-top: 1px solid rgba(23,23,23,0.08);
+  padding-top: 28px;
+  display: grid;
+  grid-template-columns: 1.2fr repeat(4, 1fr);
+  gap: 28px;
+}
+
+.footerBrand p,
+.footerColumn a {
+  margin: 10px 0 0;
+  font-family: var(--font-geist), Arial, sans-serif;
+  font-size: 14px;
+  line-height: 150%;
+  color: rgba(23,23,23,0.62);
+  text-decoration: none;
+}
+
+.footerColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footerColumn h4 {
+  margin: 0 0 8px;
+  font-family: var(--font-geist), Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #171717;
+}
+
+@media (max-width: 1200px) {
+  .heroTitle {
+    font-size: 76px;
+  }
+
+  .statCard {
+    min-height: 180px;
+    padding: 24px 28px;
+  }
+
+  .featuresGrid,
+  .ethicsGrid {
+    gap: 14px;
+  }
 }
 
 @media (max-width: 900px) {
+  .containerWide {
+    width: calc(100% - 24px);
+  }
+
   .headerInner {
     grid-template-columns: 1fr auto;
     gap: 16px;
   }
 
-  .nav { display: none; }
+  .nav {
+    display: none;
+  }
 
-  .heroTitle { font-size: 52px; }
+  .heroTitle {
+    font-size: 56px;
+  }
 
   .statsPanel,
-  .featuresGrid {
+  .featuresGrid,
+  .ethicsGrid,
+  .footerGrid {
     grid-template-columns: 1fr;
   }
 
@@ -378,24 +666,43 @@
     border-bottom: 1px solid rgba(23, 23, 23, 0.08);
   }
 
-  .statCard:last-child { border-bottom: 0; }
+  .statCard:last-child {
+    border-bottom: 0;
+  }
+
+  .pricingGlowLeft,
+  .pricingGlowRight {
+    width: 320px;
+    height: 120px;
+  }
 }
 
 @media (max-width: 640px) {
-  .containerWide,
-  .container { width: calc(100% - 20px); }
-
   .heroTitle {
-    font-size: 38px;
-    line-height: 120%;
+    font-size: 40px;
+    line-height: 118%;
   }
 
   .bodyText,
-  .infrastructureText {
+  .infrastructureText,
+  .ethicsText {
     font-size: 16px;
   }
 
-  .sectionTitle { font-size: 28px; }
+  .sectionTitle {
+    font-size: 28px;
+  }
+
+  .primaryButton,
+  .signIn {
+    font-size: 14px;
+    height: 36px;
+  }
+
+  .primaryButtonLarge {
+    font-size: 16px;
+    height: 44px;
+  }
 
   .statCard {
     min-height: auto;
@@ -404,8 +711,11 @@
     align-items: flex-start;
   }
 
-  .flagsRow { gap: 10px; }
-  .flagBadge { width: 42px; height: 42px; }
-  .flagImage { width: 34px; height: 34px; }
-  .featureCard { min-height: 150px; }
+  .flagsRow {
+    gap: 10px;
+  }
+
+  .footerGrid {
+    gap: 20px;
+  }
 }
