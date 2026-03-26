@@ -162,8 +162,10 @@
 }
 
 .dashboardWrap {
-  margin: 60px auto 0;
-  width: min(980px, 100%);
+  position: relative;
+  margin: 70px auto 0;
+  width: 100%;
+  max-width: 1200px;
   display: flex;
   justify-content: center;
 }
