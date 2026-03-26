@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation';
+import PromoPage from '../components/PromoPage';
 
 export default function HomePage() {
-  redirect('/promo');
+  return <PromoPage />;
 }
