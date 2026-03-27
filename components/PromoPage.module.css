@@ -12,7 +12,7 @@
 .header {
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 50;
   background: #fff;
   border-bottom: 1px solid rgba(23, 23, 23, 0.06);
 }
@@ -847,28 +847,6 @@
     width: 100%;
     padding: 36px 24px;
   }
-
-  .footerGrid {
-    justify-items: center;
-    text-align: center;
-    gap: 28px;
-  }
-
-  .footerBrand,
-  .footerColumn {
-    align-items: center;
-    text-align: center;
-  }
-
-  .footerBrand p,
-  .footerColumn a,
-  .footerColumn h4 {
-    text-align: center;
-  }
-
-  .footerSocials {
-    justify-content: center;
-  }
 }
 
 @media (max-width: 640px) {
@@ -1095,29 +1073,48 @@
   }
 }
 
-/* SECOND ETHICS CARD */
+
+/* ETHICS CARDS 2-4 + RESPONSIVE FIXES */
 
 .ethicsCard2Only {
   border: 1px solid #e5e5e5;
   background-color: #fafafa;
   border-radius: 20px;
-  flex-flow: row;
-  flex: none;
-  place-content: center flex-start;
-  align-items: center;
-  gap: 24px;
   width: 648px;
   height: 380px;
-  padding: 56px 16px 56px 46px;
+  padding: 56px 46px 0 46px;
   display: flex;
   position: absolute;
   left: 672px;
   top: 0;
-  overflow: visible;
+  overflow: hidden;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.ethicsCard2Only .ethicsCardTextCol {
+  width: 560px;
+  position: relative;
+  z-index: 2;
+}
+
+.ethicsCard2Only .ethicsCardImageCol {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 240px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .ethicsBotnetImage {
-  width: 320px;
+  width: 648px;
+  max-width: 648px;
   height: auto;
   object-fit: contain;
   display: block;
@@ -1140,48 +1137,31 @@
   color: rgba(23,23,23,0.72);
 }
 
-@media (max-width: 1360px) {
-  .ethicsCard2Only {
-    position: relative;
-    left: auto;
-    top: auto;
-    width: 100%;
-    max-width: 648px;
-  }
-}
-
-@media (max-width: 900px) {
-  .ethicsCard2Only {
-    height: auto;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 32px 24px;
-  }
-}
-
-/* THIRD ETHICS CARD */
-
 .ethicsCard3Only {
   border: 1px solid #e5e5e5;
   background-color: #fafafa;
   border-radius: 20px;
   width: 648px;
   height: 496px;
-  padding: 40px 32px;
+  padding: 32px 32px 40px 32px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  position: relative;
+  align-items: center;
+  justify-content: flex-start;
   overflow: hidden;
 }
 
 .ethicsComplianceImage {
-  width: 100%;
+  width: 80%;
   max-width: 584px;
   height: auto;
-  margin: 0 auto;
+  margin: 0 auto 32px auto;
   display: block;
   object-fit: contain;
+}
+
+.ethicsCard3TextWrap {
+  width: 100%;
 }
 
 .ethicsCard3Only .ethicsCardTitle {
@@ -1193,7 +1173,7 @@
 }
 
 .ethicsCard3Only .ethicsCardText {
-  margin: 24px 0 0;
+  margin: 16px 0 0;
   text-align: left;
   font-size: 16px;
   font-weight: 400;
@@ -1201,32 +1181,28 @@
   color: rgba(23,23,23,0.72);
 }
 
-/* FOURTH ETHICS CARD */
-
 .ethicsCard4Only {
   border: 1px solid #e5e5e5;
   background-color: #fafafa;
   border-radius: 20px;
-  flex-flow: row;
-  flex: none;
-  place-content: center flex-start;
-  align-items: center;
-  gap: 24px;
   width: 648px;
   height: 380px;
-  padding: 56px 16px 56px 46px;
+  padding: 42px 46px 28px 46px;
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 24px;
   position: absolute;
   left: 672px;
   top: 404px;
-  overflow: visible;
+  overflow: hidden;
 }
 
-.ethicsAupImage {
-  width: 320px;
-  height: auto;
-  object-fit: contain;
-  display: block;
+.ethicsCard4Top {
+  display: grid;
+  grid-template-columns: 156px 1fr;
+  gap: 24px;
+  align-items: start;
 }
 
 .ethicsCard4Only .ethicsCardTitle {
@@ -1238,7 +1214,7 @@
 }
 
 .ethicsCard4Only .ethicsCardText {
-  margin: 24px 0 0;
+  margin: 0;
   text-align: left;
   font-size: 16px;
   font-weight: 400;
@@ -1246,13 +1222,38 @@
   color: rgba(23,23,23,0.72);
 }
 
+.ethicsAupImageWrap {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-top: auto;
+}
+
+.ethicsAupImage {
+  width: 100%;
+  max-width: 556px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
 @media (max-width: 1360px) {
+  .ethicsGrid {
+    width: 100%;
+    height: auto;
+    align-items: center;
+  }
+
+  .ethicsCard1Only,
+  .ethicsCard2Only,
   .ethicsCard3Only,
   .ethicsCard4Only {
     width: 100%;
     max-width: 648px;
   }
 
+  .ethicsCard2Only,
   .ethicsCard4Only {
     position: relative;
     left: auto;
@@ -1261,46 +1262,93 @@
 }
 
 @media (max-width: 900px) {
-  .ethicsCard3Only {
-    height: auto;
-    padding: 32px 24px;
-    gap: 24px;
+  .ethicsGrid {
+    align-items: center;
   }
 
+  .ethicsCard1Only,
+  .ethicsCard2Only,
+  .ethicsCard3Only,
   .ethicsCard4Only {
+    width: 100%;
+    max-width: 648px;
+  }
+
+  .ethicsCard1Only {
     height: auto;
     flex-direction: column;
     align-items: flex-start;
     padding: 32px 24px;
   }
 
-  .ethicsComplianceImage,
+  .ethicsCard1Only .ethicsCardTextCol,
+  .ethicsCard1Only .ethicsCardImageCol {
+    width: 100%;
+  }
+
+  .ethicsCard1Only .ethicsCardImageCol {
+    justify-content: center;
+  }
+
+  .ethicsConsentImage {
+    width: min(250px, 100%);
+    height: auto;
+  }
+
+  .ethicsCard2Only {
+    height: auto;
+    padding: 32px 24px 24px;
+  }
+
+  .ethicsCard2Only .ethicsCardTextCol {
+    width: 100%;
+  }
+
+  .ethicsCard2Only .ethicsCardImageCol {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    width: 100%;
+    height: auto;
+    margin-top: 16px;
+    justify-content: center;
+  }
+
+  .ethicsBotnetImage {
+    width: min(100%, 420px);
+    max-width: 100%;
+  }
+
+  .ethicsCard3Only {
+    height: auto;
+    padding: 24px;
+    align-items: center;
+  }
+
+  .ethicsComplianceImage {
+    width: min(80%, 420px);
+    max-width: 100%;
+    margin: 0 auto 24px auto;
+  }
+
+  .ethicsCard3TextWrap {
+    width: 100%;
+  }
+
+  .ethicsCard4Only {
+    height: auto;
+    padding: 32px 24px 24px;
+  }
+
+  .ethicsCard4Top {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
   .ethicsAupImage {
     width: min(100%, 420px);
     max-width: 100%;
-    margin: 0;
   }
 }
 
-
-
-.footerSocials a img {
-  transition: opacity 0.2s ease, transform 0.2s ease, filter 0.2s ease;
-}
-
-.footerSocials a:hover img {
-  opacity: 0.9;
-  transform: translateY(-1px);
-}
-
-.footerSocials a:nth-child(1) img {
-  filter: brightness(0) saturate(100%) invert(36%) sepia(16%) saturate(12%) hue-rotate(314deg) brightness(96%) contrast(89%);
-}
-
-.footerSocials a:nth-child(2) img {
-  filter: brightness(0) saturate(100%) invert(50%) sepia(19%) saturate(409%) hue-rotate(182deg) brightness(89%) contrast(88%);
-}
-
-.footerSocials a:nth-child(3) img {
-  filter: brightness(0) saturate(100%) invert(36%) sepia(16%) saturate(12%) hue-rotate(314deg) brightness(96%) contrast(89%);
-}
