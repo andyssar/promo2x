@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './PromoPage.module.css';
 import { featureItems, flagItems, navLinks, statItems, trustItems } from './promo-data';
- 
+
 function CheckIcon() {
   return <span className={styles.checkIcon}>✓</span>;
 }
@@ -90,27 +90,22 @@ export default function PromoPage() {
         <div className={styles.containerWide}>
           <h2 className={styles.sectionTitle}>A platform that scales with you</h2>
           <div className={styles.featuresGrid}>
-            {featureItems.map((item, idx) => {
-              const featureIcons = [
-                '/icons/app-window.svg',
-                '/icons/shield-check.svg',
-                '/icons/layout-dashboard.svg',
-                '/icons/rocket.svg',
-              ];
-              const iconSrc = featureIcons[idx] ?? item.icon;
-
-              return (
-                <article key={item.title} className={styles.featureCard}>
-                  <div className={styles.featureHeader}>
-                    <Image src={iconSrc} alt="" width={24} height={24} className={styles.featureIcon} />
-                    <h3 className={styles.featureTitle}>{item.title}</h3>
-                  </div>
-
-                  <p className={styles.featureDescription}>{item.description}</p>
-
-                </article>
-              );
-            })}
+            {featureItems.map((item, idx) => (
+              <article key={item.title} className={styles.featureCard}>
+                <div className={styles.featureIconWrap}>
+                  <Image src={item.icon} alt="" width={24} height={24} className={styles.featureIcon} />
+                </div>
+                <h3 className={styles.featureTitle}>{item.title}</h3>
+                <p className={styles.featureDescription}>{item.description}</p>
+                <Image
+                  src={idx % 2 === 0 ? '/icons/mask_1.svg' : '/icons/mask_2.svg'}
+                  alt=""
+                  width={180}
+                  height={180}
+                  className={idx % 2 === 0 ? styles.cardMask1 : styles.cardMask2}
+                />
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -158,40 +153,16 @@ export default function PromoPage() {
           </p>
 
           <div className={styles.ethicsGrid}>
-            {trustItems.map((item, idx) => (
-              <article key={item.title} className={`${styles.ethicsCard} ${styles[`ethicsCard${idx + 1}` as keyof typeof styles] || ''}`}>
-                <div className={styles.ethicsVisual}>
-                  {idx === 0 && (
-                    <>
-                      <Image src="/world_map.png" alt="" width={560} height={240} className={styles.ethicsVisualMap} />
-                      <span className={styles.networkDotOne} />
-                      <span className={styles.networkDotTwo} />
-                      <span className={styles.networkDotThree} />
-                    </>
-                  )}
-                  {idx === 1 && (
-                    <>
-                      <div className={styles.botnetCenter} />
-                      <span className={styles.botnetMiniOne} />
-                      <span className={styles.botnetMiniTwo} />
-                      <span className={styles.botnetMiniThree} />
-                    </>
-                  )}
-                  {idx === 2 && (
-                    <div className={styles.complianceBadgeRow}><span>GDPR</span><span>CCPA</span></div>
-                  )}
-                  {idx === 3 && (
-                    <>
-                      <div className={styles.aupShield}><Image src="/icons/heart.svg" alt="" width={28} height={28} /></div>
-                      <span className={styles.aupPillOne} />
-                      <span className={styles.aupPillTwo} />
-                    </>
-                  )}
-                </div>
-                <h3 className={styles.ethicsCardTitle}>{item.title}</h3>
-                <p className={styles.ethicsCardText}>{item.description}</p>
-              </article>
-            ))}
+            <article className={`${styles.ethicsCard} ${styles.ethicsCard1Only}`}>
+              <div className={styles.ethicsCardTextCol}>
+                <h3 className={styles.ethicsCardTitle}>{trustItems[0].title}</h3>
+                <p className={styles.ethicsCardText}>{trustItems[0].description}</p>
+              </div>
+
+              <div className={styles.ethicsCardImageCol}>
+                <Image src="/consent.png" alt="" width={250} height={250} className={styles.ethicsConsentImage} />
+              </div>
+            </article>
           </div>
         </div>
       </section>
