@@ -1243,6 +1243,8 @@
     width: 100%;
     height: auto;
     align-items: center;
+    max-width: 648px;
+    margin: 30px auto 0;
   }
 
   .ethicsCard1Only,
