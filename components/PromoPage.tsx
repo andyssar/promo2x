@@ -180,7 +180,7 @@ export default function PromoPage() {
 
             <article className={`${styles.ethicsCard} ${styles.ethicsCard3Only}`}>
               <Image src="/compliance.svg" alt="" width={584} height={286} className={styles.ethicsComplianceImage} />
-              <div>
+              <div className={styles.ethicsCard3TextWrap}>
                 <h3 className={styles.ethicsCardTitle}>{trustItems[2].title}</h3>
                 <p className={styles.ethicsCardText}>{trustItems[2].description}</p>
               </div>

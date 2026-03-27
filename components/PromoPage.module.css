@@ -1074,7 +1074,7 @@
 }
 
 
-/* ETHICS CARDS 2-4 */
+/* ETHICS CARDS 2-4 + RESPONSIVE FIXES */
 
 .ethicsCard2Only {
   border: 1px solid #e5e5e5;
@@ -1146,17 +1146,22 @@
   padding: 32px 32px 40px 32px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
+  overflow: hidden;
 }
 
-.ethicsCard3Only .ethicsComplianceImage {
-  width: 100%;
+.ethicsComplianceImage {
+  width: 80%;
   max-width: 584px;
   height: auto;
   margin: 0 auto 32px auto;
   display: block;
   object-fit: contain;
+}
+
+.ethicsCard3TextWrap {
+  width: 100%;
 }
 
 .ethicsCard3Only .ethicsCardTitle {
@@ -1234,31 +1239,64 @@
 }
 
 @media (max-width: 1360px) {
+  .ethicsGrid {
+    width: 100%;
+    height: auto;
+    align-items: center;
+  }
+
+  .ethicsCard1Only,
+  .ethicsCard2Only,
+  .ethicsCard3Only,
+  .ethicsCard4Only {
+    width: 100%;
+    max-width: 648px;
+  }
+
   .ethicsCard2Only,
   .ethicsCard4Only {
     position: relative;
     left: auto;
     top: auto;
-    width: 100%;
-    max-width: 648px;
-  }
-
-  .ethicsCard3Only {
-    width: 100%;
-    max-width: 648px;
   }
 }
 
 @media (max-width: 900px) {
+  .ethicsGrid {
+    align-items: center;
+  }
+
+  .ethicsCard1Only,
   .ethicsCard2Only,
   .ethicsCard3Only,
   .ethicsCard4Only {
     width: 100%;
-    max-width: none;
+    max-width: 648px;
+  }
+
+  .ethicsCard1Only {
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px 24px;
+  }
+
+  .ethicsCard1Only .ethicsCardTextCol,
+  .ethicsCard1Only .ethicsCardImageCol {
+    width: 100%;
+  }
+
+  .ethicsCard1Only .ethicsCardImageCol {
+    justify-content: center;
+  }
+
+  .ethicsConsentImage {
+    width: min(250px, 100%);
     height: auto;
   }
 
   .ethicsCard2Only {
+    height: auto;
     padding: 32px 24px 24px;
   }
 
@@ -1274,6 +1312,7 @@
     width: 100%;
     height: auto;
     margin-top: 16px;
+    justify-content: center;
   }
 
   .ethicsBotnetImage {
@@ -1282,16 +1321,23 @@
   }
 
   .ethicsCard3Only {
+    height: auto;
     padding: 24px;
+    align-items: center;
   }
 
-  .ethicsCard3Only .ethicsComplianceImage {
-    width: min(100%, 420px);
+  .ethicsComplianceImage {
+    width: min(80%, 420px);
     max-width: 100%;
-    margin: 0 0 24px 0;
+    margin: 0 auto 24px auto;
+  }
+
+  .ethicsCard3TextWrap {
+    width: 100%;
   }
 
   .ethicsCard4Only {
+    height: auto;
     padding: 32px 24px 24px;
   }
 
