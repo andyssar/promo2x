@@ -1260,3 +1260,144 @@
   }
 }
 
+
+/* ETHICS LAYOUT REFINEMENTS */
+
+.ethicsCard2Only {
+  align-items: flex-start;
+  padding: 42px 46px 0 46px;
+}
+
+.ethicsCard2Only .ethicsCardTextCol {
+  width: 320px;
+  position: relative;
+  z-index: 2;
+}
+
+.ethicsCard2Only .ethicsCardImageCol {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 648px;
+  height: 260px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.ethicsBotnetImage {
+  width: 648px;
+  max-width: 648px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.ethicsCard3Only {
+  justify-content: flex-start;
+  padding: 28px 32px 40px 32px;
+  gap: 28px;
+}
+
+.ethicsCard3Only .ethicsCardTitle {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 120%;
+}
+
+.ethicsCard3Only .ethicsCardText {
+  margin: 24px 0 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  color: rgba(23,23,23,0.72);
+}
+
+.ethicsComplianceImage {
+  width: 100%;
+  max-width: 584px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  object-fit: contain;
+  order: -1;
+}
+
+.ethicsCard4Only {
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 24px;
+  padding: 42px 46px 28px 46px;
+}
+
+.ethicsCard4OnlyTop {
+  display: grid;
+  grid-template-columns: 156px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.ethicsCard4Only .ethicsCardTextCol {
+  width: auto;
+}
+
+.ethicsCard4Only .ethicsCardImageCol {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.ethicsAupImage {
+  width: 100%;
+  max-width: 556px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .ethicsCard2Only {
+    padding: 32px 24px 24px 24px;
+  }
+
+  .ethicsCard2Only .ethicsCardTextCol {
+    width: 100%;
+  }
+
+  .ethicsCard2Only .ethicsCardImageCol {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    width: 100%;
+    height: auto;
+    margin-top: 12px;
+  }
+
+  .ethicsBotnetImage {
+    width: min(100%, 420px);
+    max-width: 100%;
+  }
+
+  .ethicsCard3Only {
+    padding: 32px 24px;
+  }
+
+  .ethicsComplianceImage {
+    width: min(100%, 420px);
+    max-width: 100%;
+    margin: 0;
+    order: 0;
+  }
+
+  .ethicsCard4OnlyTop {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+

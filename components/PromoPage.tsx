@@ -174,6 +174,39 @@ export default function PromoPage() {
                 <p className={styles.ethicsCardText}>{trustItems[1].description}</p>
               </div>
               <div className={styles.ethicsCardImageCol}>
+                <Image src="/botnets.svg" alt="" width={648} height={260} className={styles.ethicsBotnetImage} />
+              </div>
+            </article>
+
+            <article className={`${styles.ethicsCard} ${styles.ethicsCard3Only}`}>
+              <Image src="/compliance.svg" alt="" width={584} height={286} className={styles.ethicsComplianceImage} />
+              <div>
+                <h3 className={styles.ethicsCardTitle}>{trustItems[2].title}</h3>
+                <p className={styles.ethicsCardText}>{trustItems[2].description}</p>
+              </div>
+            </article>
+
+            <article className={`${styles.ethicsCard} ${styles.ethicsCard4Only}`}>
+              <div className={styles.ethicsCard4OnlyTop}>
+                <h3 className={styles.ethicsCardTitle}>{trustItems[3].title}</h3>
+                <p className={styles.ethicsCardText}>{trustItems[3].description}</p>
+              </div>
+              <div className={styles.ethicsCardImageCol}>
+                <Image src="/aup.svg" alt="" width={556} height={170} className={styles.ethicsAupImage} />
+              </div>
+            </article>
+          </div>
+              <div className={styles.ethicsCardImageCol}>
+                <Image src="/consent.png" alt="" width={250} height={250} className={styles.ethicsConsentImage} />
+              </div>
+            </article>
+
+            <article className={`${styles.ethicsCard} ${styles.ethicsCard2Only}`}>
+              <div className={styles.ethicsCardTextCol}>
+                <h3 className={styles.ethicsCardTitle}>{trustItems[1].title}</h3>
+                <p className={styles.ethicsCardText}>{trustItems[1].description}</p>
+              </div>
+              <div className={styles.ethicsCardImageCol}>
                 <Image src="/botnets.svg" alt="" width={320} height={200} className={styles.ethicsBotnetImage} />
               </div>
             </article>
