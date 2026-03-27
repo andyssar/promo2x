@@ -1243,8 +1243,6 @@
     width: 100%;
     height: auto;
     align-items: center;
-    max-width: 648px;
-    margin: 30px auto 0;
   }
 
   .ethicsCard1Only,
@@ -1300,9 +1298,18 @@
   .ethicsCard2Only {
     height: auto;
     padding: 32px 24px 24px;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .ethicsCard2Only .ethicsCardTextCol {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .ethicsCard2Only .ethicsCardTitle,
+  .ethicsCard2Only .ethicsCardText {
+    max-width: 100%;
     width: 100%;
   }
 
@@ -1315,6 +1322,7 @@
     height: auto;
     margin-top: 16px;
     justify-content: center;
+    align-self: center;
   }
 
   .ethicsBotnetImage {
