@@ -349,7 +349,7 @@
 .featureCard {
   position: relative;
   min-height: 204px;
-  padding: 46px 46px 30px;
+  padding: 42px 44px 30px;
   border-radius: 20px;
   overflow: hidden;
   background: linear-gradient(180deg, #b53471 0%, #833471 100%);
@@ -902,6 +902,11 @@
   content: none;
 }
 
+.featureCard {
+  position: relative;
+  overflow: hidden;
+}
+
 .featureCard:nth-child(1)::before {
   content: "";
   position: absolute;
@@ -929,7 +934,32 @@
   pointer-events: none;
 }
 
-.featureCard {
-  position: relative;
-  overflow: hidden;
+.featureCard:nth-child(3)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/icons/feature-shape-1.svg") no-repeat 50% / cover;
+  transform: scaleY(-1);
+  opacity: 1;
+  pointer-events: none;
+}
+
+.featureCard:nth-child(4)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/icons/feature-shape-2.svg") no-repeat 50% / cover;
+  transform: scaleY(-1);
+  opacity: 1;
+  pointer-events: none;
+}
+
+.featureCard:nth-child(4)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/icons/feature-shape-3.svg") no-repeat 50% / cover;
+  transform: scaleY(-1);
+  opacity: 1;
+  pointer-events: none;
 }
