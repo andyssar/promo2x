@@ -513,6 +513,7 @@
   font-size: 20px;
   color: #171717;
   text-align: center;
+  font-weight:500;
 }
 
 .pricingDivider {
@@ -528,7 +529,8 @@
   align-items: flex-end;
   justify-content: center;
   gap: 6px;
-  margin: 20px 0 0;
+  margin: 40px 0 0;
+  font-weight: 500;
 }
 
 .priceFrom,
@@ -541,6 +543,7 @@
 .priceValue {
   font-family: var(--font-geist), Arial, sans-serif;
   font-size: 48px;
+  font-weight: 500;
   line-height: 100%;
   color: #171717;
 }
@@ -550,7 +553,7 @@
   font-family: var(--font-geist), Arial, sans-serif;
   font-size: 16px;
   line-height: 150%;
-  color: #171717;
+  color: #525252;
   text-align: center;
 }
 
@@ -568,9 +571,9 @@
   align-items: center;
   gap: 10px;
   font-family: var(--font-geist), Arial, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 150%;
-  color: #222;
+  color: #000;
   margin-bottom: 8px;
 }
 
@@ -580,7 +583,6 @@
 }
 
 .pricingButtonWrap {
-  margin-top: 28px;
   display: flex;
   justify-content: center;
 }
