@@ -1072,3 +1072,68 @@
     height: auto;
   }
 }
+
+
+/* SECOND ETHICS CARD */
+
+.ethicsCard2Only {
+  border: 1px solid #e5e5e5;
+  background-color: #fafafa;
+  border-radius: 20px;
+  flex-flow: row;
+  flex: none;
+  place-content: center flex-start;
+  align-items: center;
+  gap: 24px;
+  width: 648px;
+  height: 380px;
+  padding: 56px 16px 56px 46px;
+  display: flex;
+  position: absolute;
+  left: 672px;
+  top: 0;
+  overflow: visible;
+}
+
+.ethicsBotnetImage {
+  width: 320px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.ethicsCard2Only .ethicsCardTitle {
+  margin: 0;
+  text-align: left;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 120%;
+}
+
+.ethicsCard2Only .ethicsCardText {
+  margin: 24px 0 0;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  color: rgba(23,23,23,0.72);
+}
+
+@media (max-width: 1360px) {
+  .ethicsCard2Only {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    max-width: 648px;
+  }
+}
+
+@media (max-width: 900px) {
+  .ethicsCard2Only {
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px 24px;
+  }
+}

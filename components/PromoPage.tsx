@@ -146,6 +146,17 @@ export default function PromoPage() {
                 <Link href="/app/signup" className={styles.primaryButtonLarge}>Get Started &amp; Secure Your Rate</Link>
               </div>
             </article>
+
+  <article className={`${styles.ethicsCard} ${styles.ethicsCard2Only}`}>
+    <div className={styles.ethicsCardTextCol}>
+      <h3 className={styles.ethicsCardTitle}>{trustItems[1].title}</h3>
+      <p className={styles.ethicsCardText}>{trustItems[1].description}</p>
+    </div>
+    <div className={styles.ethicsCardImageCol}>
+      <Image src="/botnets.svg" alt="" width={320} height={200} className={styles.ethicsBotnetImage} />
+    </div>
+  </article>
+
           </div>
         </div>
       </section>
@@ -167,6 +178,17 @@ export default function PromoPage() {
                 <Image src="/consent.png" alt="" width={250} height={250} className={styles.ethicsConsentImage} />
               </div>
             </article>
+
+  <article className={`${styles.ethicsCard} ${styles.ethicsCard2Only}`}>
+    <div className={styles.ethicsCardTextCol}>
+      <h3 className={styles.ethicsCardTitle}>{trustItems[1].title}</h3>
+      <p className={styles.ethicsCardText}>{trustItems[1].description}</p>
+    </div>
+    <div className={styles.ethicsCardImageCol}>
+      <Image src="/botnets.svg" alt="" width={320} height={200} className={styles.ethicsBotnetImage} />
+    </div>
+  </article>
+
           </div>
         </div>
       </section>
