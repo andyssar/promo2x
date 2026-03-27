@@ -895,52 +895,41 @@
 }
 
 
-/* FEATURE SHAPES */
-.featureShape1,
-.featureShape2,
-.featureShape3 {
+/* FEATURE SHAPES RESET + NEW */
+
+.featureCard::before,
+.featureCard::after {
+  content: none;
+}
+
+.featureCard:nth-child(1)::before {
+  content: "";
   position: absolute;
+  inset: 0;
+  background: url("/icons/feature-shape-1.svg") no-repeat 50% / cover;
+  opacity: 1;
   pointer-events: none;
-  z-index: 0;
-  background-repeat: no-repeat;
-  background-size: contain;
 }
 
-.featureShape1 {
-  width: 648px;
-  height: 204px;
-  top: 4px;
-  right: 0;
-  background-image: url("/icons/feature-shape-1.svg");
-  background-position: right top;
-  opacity: 1;
-}
-
-.featureShape2 {
+.featureCard:nth-child(2)::before {
+  content: "";
+  position: absolute;
   inset: 0;
-  background-image: url("/icons/feature-shape-2.svg");
-  background-position: center;
+  background: url("/icons/feature-shape-2.svg") no-repeat 50% / cover;
   opacity: 1;
+  pointer-events: none;
 }
 
-.featureShape3 {
+.featureCard:nth-child(2)::after {
+  content: "";
+  position: absolute;
   inset: 0;
-  background-image: url("/icons/feature-shape-3.svg");
-  background-position: center;
+  background: url("/icons/feature-shape-3.svg") no-repeat 50% / cover;
   opacity: 1;
+  pointer-events: none;
 }
 
-.featureShape1Reflected {
-  transform: scaleX(-1);
-  transform-origin: center;
-}
-
-.featureShapeVertical {
-  transform: scaleY(-1);
-  transform-origin: center;
-}
-
-.featureCard > * {
+.featureCard {
   position: relative;
-  z-index: 1;
+  overflow: hidden;
 }
