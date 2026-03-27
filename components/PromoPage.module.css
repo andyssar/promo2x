@@ -2,7 +2,7 @@
   background: #fafafa;
   color: #171717;
   overflow-x: hidden;
-}
+} 
 
 .containerWide {
   width: min(1320px, calc(100% - 40px));
@@ -330,33 +330,78 @@
 }
 
 .featuresGrid {
-  margin-top: 72px;
-  display: grid;
-  grid-template-columns: repeat(2, 648px);
-  justify-content: space-between;
+  max-width: 1320px;
+  height: min-content;
+  overflow: hidden;
+  z-index: 2;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(648px, 1fr));
+  grid-auto-rows: minmax(0, 1fr);
+  justify-content: center;
   gap: 24px;
+  width: 100%;
+  padding: 0;
+  display: grid;
+  position: relative;
+  margin: 72px auto 0;
 }
 
 .featureCard {
   position: relative;
-  height: 204px;
-  padding: 46px 46px 30px;
+  min-height: 204px;
+  padding: 42px 44px 30px;
   border-radius: 20px;
   overflow: hidden;
-  background: linear-gradient(180deg, #bf4387 0%, #9d3471 100%);
+  background: linear-gradient(180deg, #b53471 0%, #833471 100%);
   color: #fff;
 }
 
-.featureIconWrap {
+.featureCard:nth-child(3),
+.featureCard:nth-child(4) {
+  background: linear-gradient(180deg, #833471 0%, #b53471 100%);
+}
+
+.featureCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/icons/feature-shape-1.svg") no-repeat center/cover;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.featureCard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/icons/feature-shape-2.svg") no-repeat center/cover;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+
+
+.featureCard:nth-child(3)::after {
+  transform: rotate(180deg);
+}
+
+.featureHeader {
   position: relative;
   z-index: 1;
-  width: 24px;
-  height: 24px;
-  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
 }
 
 .featureIcon {
-  opacity: 0.95;
+  width: 24px;
+  height: 24px;
+  opacity: 0.55;
+  filter: brightness(0) invert(1);
+  flex: none;
+  position: relative;
+  z-index: 1;
 }
 
 .featureTitle {
@@ -364,7 +409,7 @@
   z-index: 1;
   margin: 0;
   font-family: var(--font-geist), Arial, sans-serif;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 500;
   line-height: 150%;
 }
@@ -372,33 +417,46 @@
 .featureDescription {
   position: relative;
   z-index: 1;
-  margin: 46px 0 0;
-  max-width: 520px;
+  margin: 30px 0 0 36px;
+  max-width: 500px;
   font-family: var(--font-geist), Arial, sans-serif;
   font-size: 16px;
+  font-weight: 400;
   line-height: 150%;
-  color: rgba(255,255,255,0.92);
+  color: rgba(255,255,255,0.96);
 }
 
-.cardMask1,
-.cardMask2 {
-  position: absolute;
-  pointer-events: none;
-  opacity: 0.18;
+
+@media (max-width: 1380px) {
+  .featuresGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
-.cardMask1 {
-  right: 42px;
-  bottom: -28px;
-  width: 180px;
-  height: auto;
-}
+@media (max-width: 900px) {
+  .featuresSection {
+    padding: 72px 0;
+  }
 
-.cardMask2 {
-  right: 64px;
-  top: -10px;
-  width: 160px;
-  height: auto;
+  .featuresGrid {
+    margin-top: 56px;
+    grid-template-columns: 1fr;
+  }
+
+  .featureCard {
+    min-height: auto;
+    padding: 32px 24px 24px;
+  }
+
+  .featureTitle {
+    font-size: 18px;
+  }
+
+  .featureDescription {
+    margin: 24px 0 0 36px;
+    max-width: none;
+    font-size: 15px;
+  }
 }
 
 .pricingSection {
@@ -455,6 +513,7 @@
   font-size: 20px;
   color: #171717;
   text-align: center;
+  font-weight:500;
 }
 
 .pricingDivider {
@@ -470,7 +529,8 @@
   align-items: flex-end;
   justify-content: center;
   gap: 6px;
-  margin: 20px 0 0;
+  margin: 40px 0 0;
+  font-weight: 500;
 }
 
 .priceFrom,
@@ -483,6 +543,7 @@
 .priceValue {
   font-family: var(--font-geist), Arial, sans-serif;
   font-size: 48px;
+  font-weight: 500;
   line-height: 100%;
   color: #171717;
 }
@@ -492,17 +553,19 @@
   font-family: var(--font-geist), Arial, sans-serif;
   font-size: 16px;
   line-height: 150%;
-  color: #171717;
+  color: #525252;
   text-align: center;
 }
 
 .pricingList {
   list-style: none;
   padding: 0;
-  margin: 32px 0 0;
+  margin: 32px auto 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  gap: 10px;
+  max-width: 260px;
 }
 
 .pricingList li {
@@ -510,10 +573,9 @@
   align-items: center;
   gap: 10px;
   font-family: var(--font-geist), Arial, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 150%;
-  color: #222;
-  margin-bottom: 8px;
+  color: #000;
 }
 
 .checkIcon {
@@ -522,9 +584,9 @@
 }
 
 .pricingButtonWrap {
-  margin-top: 28px;
   display: flex;
   justify-content: center;
+  margin-top: 24px;
 }
 
 .ethicsSection {
@@ -831,6 +893,76 @@
   .ethicsText {
     font-size: 16px;
   }
+}
+
+
+/* FEATURE SHAPES RESET + NEW */
+
+.featureCard::before,
+.featureCard::after {
+  content: none;
+}
+
+.featureCard {
+  position: relative;
+  overflow: hidden;
+}
+
+.featureCard:nth-child(1)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/icons/feature-shape-1.svg") no-repeat 50% / cover;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.featureCard:nth-child(2)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/icons/feature-shape-2.svg") no-repeat 50% / cover;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.featureCard:nth-child(2)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/icons/feature-shape-3.svg") no-repeat 50% / cover;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.featureCard:nth-child(3)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/icons/feature-shape-1.svg") no-repeat 50% / cover;
+  transform: scaleY(-1);
+  opacity: 1;
+  pointer-events: none;
+}
+
+.featureCard:nth-child(4)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/icons/feature-shape-2.svg") no-repeat 50% / cover;
+  transform: scaleY(-1);
+  opacity: 1;
+  pointer-events: none;
+}
+
+.featureCard:nth-child(4)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/icons/feature-shape-3.svg") no-repeat 50% / cover;
+  transform: scaleY(-1);
+  opacity: 1;
+  pointer-events: none;
 }
 
 
